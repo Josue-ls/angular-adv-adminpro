@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
 
 @Component({
   selector: 'app-incrementador',
@@ -6,15 +6,18 @@ import { Component } from '@angular/core';
   styles: [],
 })
 export class IncrementadorComponent {
-  progress: number;
+  @Input('progress-child') progress: number;
+
+  // Se pueden tener tantos inputs como sean necesarios
+  // @Input() input1: string | number | boolean | array |
 
   constructor() {
     this.progress = 50;
   }
 
-  get getProgress() {
-    return `${this.progress}%`;
-  }
+  // get getProgress() {
+  //   return `${this.progress}%`;
+  // }
 
   changeValue(value: number): void {
     if (this.progress >= 100 && value > 0) {
