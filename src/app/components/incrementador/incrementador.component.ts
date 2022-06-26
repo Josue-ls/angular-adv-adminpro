@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component, Input, Output, EventEmitter } from '@angular/core';
 
 @Component({
   selector: 'app-incrementador',
@@ -6,28 +6,24 @@ import { Component, Input } from '@angular/core';
   styles: [],
 })
 export class IncrementadorComponent {
-  @Input('progress-child') progress: number;
+  @Input('inValue') progressIn: number = 50;
+  @Output('outValue') progressOut: EventEmitter<number> = new EventEmitter();
 
   // Se pueden tener tantos inputs como sean necesarios
-  // @Input() input1: string | number | boolean | array |
-
-  constructor() {
-    this.progress = 50;
-  }
-
-  // get getProgress() {
-  //   return `${this.progress}%`;
-  // }
+  // @Input() input1: string | number | boolean | array | object;
 
   changeValue(value: number): void {
-    if (this.progress >= 100 && value > 0) {
-      this.progress = 100;
+    if (this.progressIn >= 100 && value > 0) {
+      this.progressIn = 100;
+      this.progressOut.emit(100);
       return;
     }
-    if (this.progress <= 0 && value < 0) {
-      this.progress = 0;
+    if (this.progressIn <= 0 && value < 0) {
+      this.progressIn = 0;
+      this.progressOut.emit(0);
       return;
     }
-    this.progress += value;
+    this.progressIn += value;
+    this.progressOut.emit(this.progressIn);
   }
 }

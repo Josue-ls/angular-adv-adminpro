@@ -8,6 +8,7 @@
             class="progress-bar bg-primary progress-bar-striped active"
             style="height: 10px"
             role="progressbar"
+            [style.width]="getProgress1"
           >
             <span class="sr-only">85% Complete (success)</span>
           </div>
@@ -17,6 +18,7 @@
             class="progress-bar bg-info progress-bar-striped active"
             style="height: 10px"
             role="progressbar"
+            [style.width]="getProgress2"
           >
             <span class="sr-only">85% Complete (success)</span>
           </div>
@@ -30,14 +32,20 @@
   <div class="col-6">
     <div class="card bg-light">
       <div class="card-body">
-        <app-incrementador [progress-child]="20"></app-incrementador>
+        <app-incrementador
+          (outValue)="setProgress1($event)"
+          [inValue]="progress1"
+        ></app-incrementador>
       </div>
     </div>
   </div>
   <div class="col-6">
     <div class="card bg-light">
       <div class="card-body">
-        <app-incrementador></app-incrementador>
+        <app-incrementador
+          (outValue)="setProgress2($event)"
+          [inValue]="progress2"
+        ></app-incrementador>
       </div>
     </div>
   </div>
