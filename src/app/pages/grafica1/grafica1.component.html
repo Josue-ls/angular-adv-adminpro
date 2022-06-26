@@ -1,13 +1,16 @@
 <div class="row">
   <div class="col-6">
-    <div class="card bg-light">
-      <div class="card-body">
-        <h3>Sales</h3>
-        <div style="display: block">
-          <canvas baseChart [data]="doughnutChartData" type="doughnut">
-          </canvas>
-        </div>
-      </div>
-    </div>
+    <app-donut title="IT" [chartData]="sendItData"></app-donut>
+  </div>
+  <div class="col-6">
+    <app-donut title="Sales" [chartData]="sendSaleData"></app-donut>
+  </div>
+</div>
+<div class="row">
+  <div class="col-6">
+    <app-donut></app-donut>
+  </div>
+  <div class="col-6">
+    <app-donut></app-donut>
   </div>
 </div>
