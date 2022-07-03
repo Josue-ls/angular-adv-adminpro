@@ -51,8 +51,9 @@
         <div class="form-group text-center">
           <div class="col-xs-12 p-b-20">
             <button
+              (click)="login()"
               class="btn btn-block btn-lg btn-info btn-rounded"
-              type="submit"
+              type="button"
             >
               Log In
             </button>
@@ -89,7 +90,7 @@
           </div>
         </div>
       </form>
-      <form class="form-horizontal" id="recoverform" action="index.html">
+      <form id="recoverform" action="index.html">
         <div class="form-group">
           <div class="col-xs-12">
             <h3>Recover Password</h3>

@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { CommonModule } from '@angular/common';
+import { FormsModule } from '@angular/forms';
 // Se encarga de las directivas como: ngIf, ngFor, etc...
 
 // Modules
@@ -13,7 +14,13 @@ import { NopagefoundComponent } from './nopagefound/nopagefound.component';
 
 @NgModule({
   declarations: [AppComponent, NopagefoundComponent],
-  imports: [BrowserModule, CommonModule, RouterModule, PagesModule],
+  imports: [
+    BrowserModule,
+    CommonModule,
+    FormsModule,
+    RouterModule,
+    PagesModule,
+  ],
   providers: [],
   bootstrap: [AppComponent],
 })
